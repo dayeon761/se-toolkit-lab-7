@@ -4,7 +4,9 @@
 
 - [What is a VM](#what-is-a-vm)
 - [Your VM](#your-vm)
-- [`<your-vm-name>` placeholder](#your-vm-name-placeholder)
+- [Your VM name](#your-vm-name)
+  - [`<your-vm-name>` placeholder](#your-vm-name-placeholder)
+- [Your VM IP address](#your-vm-ip-address)
   - [`<your-vm-ip-address>` placeholder](#your-vm-ip-address-placeholder)
 - [Connect to the correct network](#connect-to-the-correct-network)
 - [Go to the VMs site](#go-to-the-vms-site)
@@ -33,13 +35,23 @@ You probably won't have access to the VMs after the course finishes.
 
 See [VM image](./vm-info.md) for the information about your VM.
 
-## `<your-vm-name>` placeholder
+## Your VM name
 
-The name you chose when [creating the VM](#create-a-vm-using-the-subscription) (without `<` and `>`).
+The name you chose when [creating the VM](#create-a-vm-using-the-subscription).
+
+### `<your-vm-name>` placeholder
+
+[Your VM name](#your-vm-name) (without `<` and `>`).
+
+## Your VM IP address
+
+The [IP address](./computer-networks.md#ip-address) of [your VM](#your-vm) in the `UniversityStudent` [network](./computer-networks.md#what-is-a-network).
+
+See [Get the IP address of your VM](#get-the-ip-address-of-the-vm).
 
 ### `<your-vm-ip-address>` placeholder
 
-The [IP address](./computer-networks.md#ip-address) (without `<` and `>`) of [your VM](#your-vm) in the `UniversityStudent` [network](./computer-networks.md#what-is-a-network).
+[Your VM IP address](#your-vm-ip-address) (without `<` and `>`).
 
 Example: `192.0.2.1`.
 
