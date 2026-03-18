@@ -33,9 +33,6 @@
   - [`Bad owner or permissions`](#bad-owner-or-permissions)
   - [`Connection timed out`](#connection-timed-out)
   - [`ping` times out](#ping-times-out)
-- [Login](#login)
-  - [Login without password](#login-without-password)
-  - [Login with password](#login-with-password)
 
 ## About the VM access
 
@@ -750,36 +747,3 @@ If you can't connect:
    3. Your [`VS Code Terminal`](./vs-code.md#vs-code-terminal).
 
 <!-- TODO forgot to add SSH key when creating the VM -->
-
-## Login
-
-`SSH` supports two authentication methods: [key-based](#login-without-password) (no password prompt) and [password-based](#login-with-password).
-
-### Login without password
-
-Key-based authentication uses your private key to prove your identity. The remote host checks whether the matching public key is listed as authorized.
-
-This is the recommended method and is what [Set up `SSH`](./vm-access.md#set-up-ssh) configures.
-
-1. [Set up `SSH`](./vm-access.md#set-up-ssh).
-2. Ensure your `SSH` public key is added to the remote host.
-3. [Connect to the VM](./vm-access.md#connect-to-the-vm).
-
-You will not be prompted for a password.
-
-### Login with password
-
-Password-based authentication asks you to type the remote user's password.
-
-> [!NOTE]
-> Password authentication may be disabled on the VM. Use [key-based authentication](#login-without-password) instead.
-
-1. To connect with a password,
-
-   [run in the `VS Code Terminal`](./vs-code.md#run-a-command-in-the-vs-code-terminal):
-
-   ```terminal
-   ssh -o PasswordAuthentication=yes root@<your-vm-ip-address>
-   ```
-
-2. Type the VM's root password when prompted.

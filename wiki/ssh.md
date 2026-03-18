@@ -3,7 +3,9 @@
 <h2>Table of contents</h2>
 
 - [What is `SSH`](#what-is-ssh)
-- [`SSH` authentication methods](#ssh-authentication-methods)
+- [`SSH` login methods](#ssh-login-methods)
+  - [Login using a password](#login-using-a-password)
+  - [Login using an `SSH` key](#login-using-an-ssh-key)
 - [`SSH` key pair](#ssh-key-pair)
   - [`SSH` public key](#ssh-public-key)
   - [`SSH` private key](#ssh-private-key)
@@ -24,10 +26,24 @@ You can use it to connect to [your virtual machine](./vm.md#your-vm).
 > **Windows users:** Use [`WSL`](./operating-system.md#wsl) (Windows Subsystem for Linux).
 > Do not use `PowerShell`, `cmd.exe`, or `Git Bash` — the commands below are not guaranteed to work there.
 
-## `SSH` authentication methods
+## `SSH` login methods
 
-- using a password
-- using an [`SSH` key](#ssh-key-pair)
+- Method 1: [Login using a password](#login-using-a-password)
+- Method 2: [Login using an `SSH` key](#login-using-an-ssh-key)
+
+### Login using a password
+
+Password-based authentication asks you to type the password of the [user](./operating-system.md#user).
+
+### Login using an `SSH` key
+
+Key-based authentication uses your [`SSH` private key](#ssh-private-key) to prove your identity.
+
+The remote host checks whether the matching [`SSH` public key](#ssh-public-key) is listed as authorized.
+
+This is the recommended method.
+
+See [Set up the `SSH` access to the VM as the user `<user>`](./vm-access.md#set-up-the-ssh-access-to-the-vm-as-the-user-user).
 
 ## `SSH` key pair
 
