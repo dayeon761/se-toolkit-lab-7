@@ -35,11 +35,28 @@ Pass rates for Lab 04:
 - Add Front-end: 68.3% (142 attempts)
 ```
 
-When the backend is down, the bot should show a friendly message — not a Python traceback:
+When the backend is down, the bot must show a user-friendly message that **includes the actual error** — not a raw traceback, but not a generic "something went wrong" either. The user needs enough information to debug.
 
+Good — includes the error:
 ```terminal
 $ uv run bot.py --test "/health"
-Backend is not responding. Check that the services are running.
+Backend error: connection refused (localhost:42002). Check that the services are running.
+```
+```terminal
+$ uv run bot.py --test "/health"
+Backend error: HTTP 502 Bad Gateway. The app service may be down.
+```
+
+Bad — hides the error (useless for debugging):
+```terminal
+Backend is not responding.
+```
+
+Bad — raw traceback (not user-friendly):
+```terminal
+Traceback (most recent call last):
+  ...
+httpx.ConnectError: [Errno 111] Connection refused
 ```
 
 ## Backend endpoints
@@ -103,6 +120,6 @@ You should see a friendly error message, not a Python traceback.
 - [ ] `--test "/health"` returns a status indicator.
 - [ ] `--test "/labs"` lists at least 2 labs.
 - [ ] `--test "/scores lab-04"` shows task names and scores.
-- [ ] With backend stopped, `--test "/health"` returns friendly message, no `Traceback`.
+- [ ] With backend stopped, `--test "/health"` returns a message with the actual error (e.g., "connection refused", "HTTP 502"), no raw `Traceback`.
 - [ ] Git workflow followed.
 
