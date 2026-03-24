@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Telegram bot entry point with --test mode.
 
@@ -20,7 +21,6 @@ from handlers import (
     handle_health,
     handle_labs,
     handle_scores,
-    handle_unknown,
 )
 
 
@@ -35,15 +35,19 @@ def get_handler(command: str):
     }
     # Extract command from text (e.g., "/scores lab-01" -> "/scores")
     cmd = command.split()[0] if command else ""
-    return handlers.get(cmd, handle_unknown)
+    return handlers.get(cmd, None)
 
 
 def run_test_mode(command: str) -> None:
     """Run bot in test mode - call handler directly and print result."""
     handler = get_handler(command)
-    response = handler(command)
-    print(response)
-    sys.exit(0)
+    if handler:
+        response = handler(command)
+        print(response)
+        sys.exit(0)
+    else:
+        print(f"Unknown command: {command}")
+        sys.exit(1)
 
 
 async def run_telegram_bot() -> None:
@@ -85,7 +89,6 @@ async def run_telegram_bot() -> None:
 
     @dp.message(Command("scores"))
     async def cmd_scores(message: types.Message):
-        # Get lab name from command args
         lab_name = message.text.split(maxsplit=1)[1] if len(message.text.split()) > 1 else ""
         await message.answer(handle_scores(f"/scores {lab_name}"))
 
