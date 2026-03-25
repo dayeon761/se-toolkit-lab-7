@@ -415,6 +415,7 @@ dependencies = [
     { name = "aiogram" },
     { name = "httpx" },
     { name = "pydantic-settings" },
+    { name = "python-dotenv" },
 ]
 
 [package.metadata]
@@ -422,6 +423,7 @@ requires-dist = [
     { name = "aiogram", specifier = ">=3.20" },
     { name = "httpx", specifier = "==0.28.1" },
     { name = "pydantic-settings", specifier = "==2.12.0" },
+    { name = "python-dotenv", specifier = ">=1.0.0" },
 ]
 
 [[package]]
